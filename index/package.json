@@ -1,0 +1,80 @@
+{
+  "name": "todolist",
+  "version": "0.1.0",
+  "author": "your name",
+  "description": "My Electron app",
+  "main": "main.js",
+  "producName": "todoList",
+  "scripts": {
+    "start": "electron-forge start",
+    "deploy": "electron-builder --windows nsis:ia32",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "build": {
+    "productName": "test",
+    "appId": "com.electron.hello",
+    "asar": true,
+    "protocols": {
+      "name": "test",
+      "schemes": [
+        "test"
+      ]
+    },
+    "win": {
+      "target": [
+        "zip",
+        "nsis"
+      ],
+      "icon": "./resources/installer/Icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "directories": {
+      "buildResources": "./resources/installer/",
+      "output": "./exeResult/",
+      "app": "."
+    }
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "electron": "18.0.3"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "todolist"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}
