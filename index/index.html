@@ -1,42 +1,73 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Something</title>
-        <meta charset="UTF-8">
-        <link rel= "stylesheet" href = "./css/index.css">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
+<style>
+    *{ margin: 0; padding: 0;}
 
-    <body>
+    body{
+        margin: 0 auto;
+        margin-top: 90px;
+        width: 600px;
+    }
+    .top{
+        height: 400px;
+        background-color: aqua;
+    }
+    .right{
+        background-color: rebeccapurple;
+    }
+    .list{
+        margin: 0 auto;
+        text-align: center;
+        background-color: blue;
+    }
 
-    <div class = info>
-        <span class="js-weather"></span><br>
-        <span class="js-place"></span>
+    #style_div{
+        text-align: center;
+    }
+
+    #purge_id{
+        size: 50px;
+
+    }
+</style>
+<script>
+    function purgeadd(){
+        var input = document.getElementById("input");
+        console.log(input.value);
+        var list = document.getElementById("purgelist");
+        var ci = document.createElement('input');
+        ci.setAttribute('type','text');
+        ci.setAttribute('readonly','');
+        ci.setAttribute('name','chk[]');
+        ci.setAttribute('value',input.value);
+        list.appendChild(ci);
+        return;
+    }
+</script>
+
+<body>
+    <div class="top">미리보기</div>
+    <div class="right">
+            <div id="style_div">
+                <input id="input" type="text" value>
+                <input type="submit" value="제출" value onclick="purgeadd();">
+            </div>
+    </div>
+    <div class="list">리스트
+        <form id="purgelist" method="POST" action="./test.html">
+        </form>
+        <button type="submit" form="purgelist">submit</button>
     </div>
 
-        <div class ="js-clock">
-            <h1>00:00</h1>
-        </div>
-
-        <form class = "js-form form">
-            <input type = "text" placeholder ="What is your name?">
-        </form>
-
-        <h4 class = "js-greetings greetings"></h4>
-
-        <form class = "js-toDoForm">
-            <input type="text" placeholder="Write a to do."">
-        </form>
-
-        <ul class="js-toDoList"></ul>
 
 
-        <span class = "js-weather"></span>
-        <script src = "./js/clock.js"></script>
-        <script src = "./js/getting.js"></script>
-        <script src = "./js/todo.js"></script>
-        <script src = "./js/bg.js"></script>
-        <script src = "./js/weather.js"></script>
-    </body>
-
+</body>
 </html>
+
